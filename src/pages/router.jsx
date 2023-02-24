@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Pages
-import Error from "./Error";
-import Home from "./Home";
-import Movie from "./Movie";
+import Error from "./Error/Index";
+import Home from "./Home/Index";
+import Movie from "./Movie/Index";
+import NotFound from "./NotFound/Index";
 
 const router = createBrowserRouter([
   {
@@ -12,9 +13,13 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/movie",
+    path: "/movie/:id",
     element: <Movie />,
     errorElement: <Error />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
