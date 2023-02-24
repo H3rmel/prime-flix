@@ -13,7 +13,7 @@ const Layout = ({ children, pageTitle }) => {
   return (
     <>
       <Header />
-      <div className="container mx-auto my-4">{children}</div>
+      <div className="w-11/12  sm:container mx-auto my-4">{children}</div>
       <ToastContainer autoClose={3000} />
     </>
   );
