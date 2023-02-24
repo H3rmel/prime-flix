@@ -4,13 +4,13 @@ O Prime flix é um projeto realizado por meio de um curso de ReactJS da Udemy, n
 
 [React Js do zero ao avançado na pratica](https://www.udemy.com/course/curso-reactjs/)
 
-## Features
+## Features 💻
 
 - [x] Consultar filmes que estão sendo reproduzidos nos cinemas atualmente;
 - [x] Consultar informações de filmes individualmente;
 - [x] Gerenciar lista de filmes favoritos.
 
-## Hospedagem
+## Hospedagem 🏨
 
 O projeto se encontra hospedado na [Vercel](https://vercel.com), no seguinte link:
 
@@ -43,7 +43,7 @@ Se tudo estiver correto, você verá uma mensagem como esta em seu CLI:
 
 *Obs.: A versão e tempo para o Vite iniciar pode ser diferente de usuário para usuário. (por motivos de computadores diferentes e versões de Node diferentes)*
 
-## Tecnologias
+## Tecnologias 🛠️
 
 - React
 - React Router
