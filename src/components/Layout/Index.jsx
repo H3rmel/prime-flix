@@ -2,6 +2,9 @@ import { useEffect } from "react";
 
 import Header from "../Header/Index";
 
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const Layout = ({ children, pageTitle }) => {
   useEffect(() => {
     document.title = `${pageTitle} | Prime Flix`;
@@ -10,9 +13,8 @@ const Layout = ({ children, pageTitle }) => {
   return (
     <>
       <Header />
-      <div className="container">
-        {children}
-      </div>
+      <div className="container">{children}</div>
+      <ToastContainer autoClose={3000} />
     </>
   );
 };
