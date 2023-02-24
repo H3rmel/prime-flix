@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Header from "../Header/Index";
 
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.min.css';
+import "react-toastify/dist/ReactToastify.min.css";
 
 const Layout = ({ children, pageTitle }) => {
   useEffect(() => {
@@ -13,7 +13,7 @@ const Layout = ({ children, pageTitle }) => {
   return (
     <>
       <Header />
-      <div className="container">{children}</div>
+      <div className="container mx-auto my-4">{children}</div>
       <ToastContainer autoClose={3000} />
     </>
   );
