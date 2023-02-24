@@ -1,5 +1,20 @@
-import api from "../api";
+import api from "./api";
 
+// Get all Movies according to page
+const getMovies = async (setData, setLoading, page) => {
+  const response = await api.get("/movie/now_playing", {
+    params: {
+      api_key: import.meta.env.VITE_API_KEY,
+      language: "pt-BR",
+      page: page,
+    },
+  });
+
+  setData(response.data.results), setLoading(false);
+  return;
+};
+
+// Get specific Movie with Id
 const getMovie = async (id, setData, setLoading, navigate) => {
   const response = await api
     .get(`/movie/${id}`, {
@@ -19,4 +34,5 @@ const getMovie = async (id, setData, setLoading, navigate) => {
   return;
 };
 
-export default getMovie;
+export { getMovie, getMovies };
+

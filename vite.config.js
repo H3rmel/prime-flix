@@ -11,13 +11,10 @@ export default defineConfig({
   ],
   server: {
     hmr: true,
-    watch: {
-      usePolling: true,
-    },
   },
   resolve: {
     alias: {
-      "@tailwind": path.resolve(__dirname, "src/styles"),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });

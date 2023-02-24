@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import Layout from "../../components/Layout/Index";
+import Layout from "@/components/Layout/Index";
 
-import getMovie from "../../services/Movies/getMovie";
+import { getMovie } from "@/services/movies";
+
+import { saveMovie } from "@/services/store";
 
 const Movie = () => {
   const [movie, setMovie] = useState({});
@@ -22,7 +24,7 @@ const Movie = () => {
       {loading ? (
         "Carregando..."
       ) : (
-        <section className="my-4">
+        <>
           <article
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
@@ -38,7 +40,7 @@ const Movie = () => {
               </div>
             </div>
           </article>
-          <article className="bg-white p-4 my-4 rounded-xl shadow-md">
+          <article className="card-simple my-4">
             <h2 className="mb-1">Resumo</h2>
             <p className="text-lg">{movie.overview}</p>
             <hr className="my-2" />
@@ -48,7 +50,9 @@ const Movie = () => {
             </p>
           </article>
           <div className="flex gap-4 justify-center md:justify-start">
-            <button className="btn">Salvar</button>
+            <button className="btn" onClick={() => saveMovie(movie)}>
+              Salvar
+            </button>
             <a
               href={`https://youtube.com/results?search_query=${movie.title} Trailer`}
               rel="external"
@@ -58,7 +62,7 @@ const Movie = () => {
               Trailer
             </a>
           </div>
-        </section>
+        </>
       )}
     </Layout>
   );

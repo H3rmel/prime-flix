@@ -11,6 +11,10 @@
     @apply w-full bg-slate-800 text-slate-200 py-4 px-2 flex justify-between items-center shadow-md md:justify-around md:px-0;
   }
 
+  h1 {
+    @apply text-5xl font-semibold;
+  }
+
   h2 {
     @apply text-3xl font-semibold;
   }
@@ -28,7 +32,7 @@
 
   /* Container */
   .container {
-    @apply w-2/3 mx-auto;
+    @apply w-2/3 mx-auto my-4;
   }
 
   /* Home */
@@ -38,6 +42,10 @@
 
   .card-body {
     @apply w-full h-full bg-gradient-to-t from-black text-white flex flex-col justify-end p-4 rounded-2xl;
+  }
+
+  .card-simple {
+    @apply bg-white p-4 rounded-xl shadow-md;
   }
 
   /* Movie */

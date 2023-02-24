@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import Layout from "../../components/Layout/Index";
+import Layout from "@/components/Layout/Index";
 
-import getMovies from "../../services/getMovies";
+import { getMovies } from "@/services/movies";
 
 const Index = () => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +19,7 @@ const Index = () => {
       {loading ? (
         "Carregando..."
       ) : (
-        <div className="my-4 grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+        <div className="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
           {movies.map((movie) => (
             <article
               style={{
