@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 
 import Layout from "@/components/Layout/Index";
 
-import { getSavedMoviesList, removeMovie } from "@/services/store";
+import { getFavorites, removeMovie } from "@/services/store";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setFavorites(getSavedMoviesList());
+    setFavorites(getFavorites());
     setLoading(false);
-    console.log(favorites);
   }, []);
 
   return (

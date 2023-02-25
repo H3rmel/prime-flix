@@ -1,57 +1,50 @@
 import { toast } from "react-toastify";
 
 const saveMovie = (movie) => {
-  const savedMovies = getSavedMoviesList();
+  const favorites = getFavorites();
 
-  hasMovie(savedMovies, movie, (condition) => {
+  hasMovie(favorites, movie, (condition) => {
     if (condition) toast.error("Este filme já esta na sua lista!");
-    else {
-      savedMovies.push(movie);
-      setSavedMoviesList(savedMovies, "Filme salvo com sucesso!");
-    }
+    else pushToFavorites(movie, favorites, "Filme salvo com sucesso!");
   });
 };
 
 const removeMovie = (movie, setData) => {
-  const savedMovies = getSavedMoviesList();
+  const favorites = getFavorites();
 
-  hasMovie(savedMovies, movie, (condition) => {
+  hasMovie(favorites, movie, (condition) => {
     if (!condition) toast.error("Este filme não esta na sua lista!");
-    else {
-      let filteredSavedMovies = savedMovies.filter(
-        (savedMovie) => savedMovie.id !== movie.id
-      );
-      setSavedMoviesList(filteredSavedMovies, "Filme removido com sucesso!");
-      setData(getSavedMoviesList);
-    }
+    else removeOfFavorites(favorites, movie, setData);
   });
 };
 
-//#region Utils
+const removeOfFavorites = (favorites, movie, setData) => {
+  const filteredFavorites = favorites.filter(
+    (favorite) => favorite.id !== movie.id
+  );
+  setFavorites(filteredFavorites, "Filme removido com sucesso!");
+  setData(getFavorites);
+};
 
-const setSavedMoviesList = (savedMovies, message) => {
+const pushToFavorites = (movie, favorites, message) => {
+  favorites.push(movie);
+  setFavorites(favorites, message);
+};
+
+const setFavorites = (savedMovies, message) => {
   localStorage.setItem("@primeflix", JSON.stringify(savedMovies));
   toast.success(message);
 };
 
-const getSavedMoviesList = () => {
+const getFavorites = () => {
   const myList = localStorage.getItem("@primeflix");
   return JSON.parse(myList) || [];
 };
 
-const hasMovie = (moviesList, movie, callback) => {
-  if (moviesList.some((savedMovie) => savedMovie.id == movie.id))
-    callback(true);
+const hasMovie = (favorites, movie, callback) => {
+  if (favorites.some((favorite) => favorite.id === movie.id)) callback(true);
   else callback(false);
 };
 
-//#endregion
-
-export {
-  saveMovie,
-  removeMovie,
-  setSavedMoviesList,
-  getSavedMoviesList,
-  hasMovie,
-};
+export { saveMovie, removeMovie, getFavorites };
 
