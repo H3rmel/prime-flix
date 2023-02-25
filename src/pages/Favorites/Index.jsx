@@ -25,7 +25,9 @@ const Favorites = () => {
           <hr className="my-4 border-slate-300" />
 
           {favorites.length === 0 ? (
-            <p className="text-xl font-medium text-red-500 text-center">Você não possui nenhum filme favorito! ☹️</p>
+            <p className="text-xl font-medium text-red-500 text-center">
+              Você não possui nenhum filme favorito! ☹️
+            </p>
           ) : (
             <div className="flex flex-col gap-4">
               {favorites.map((favorite) => (
