@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Layout from "@/components/Layout/Index";
 
-import { getFavorites, removeMovie } from "@/services/store";
+import { getFavorites, removeMovie } from "@/services/favorites";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);

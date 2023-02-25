@@ -6,7 +6,7 @@ import Layout from "@/components/Layout/Index";
 
 import { getMovie } from "@/services/movies";
 
-import { saveMovie } from "@/services/store";
+import { saveMovie } from "@/services/favorites";
 
 const Movie = () => {
   const [movie, setMovie] = useState({});
