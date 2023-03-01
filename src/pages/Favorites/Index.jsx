@@ -6,6 +6,8 @@ import Layout from "@/components/Layout/Index";
 
 import { getFavorites, removeMovie } from "@/services/favorites";
 
+import { toast } from "react-toastify";
+
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,14 +17,23 @@ const Favorites = () => {
     setLoading(false);
   }, []);
 
+  const handleRemoveMovie = (favorite) => {
+    try {
+      removeMovie(favorite, setFavorites);
+      toast.success("Filme removido com sucesso!")
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
   return (
     <Layout pageTitle="Favoritos">
       {loading ? (
         "Carregando..."
       ) : (
         <>
-          <h1 className="text-center">Meus filmes</h1>
-          <hr className="my-4 border-slate-300" />
+          <h1 className="text-center text-slate-200">Meus filmes</h1>
+          <hr className="my-4 border-slate-700" />
 
           {favorites.length === 0 ? (
             <p className="text-xl font-medium text-red-500 text-center">
@@ -33,7 +44,7 @@ const Favorites = () => {
               {favorites.map((favorite) => (
                 <article
                   key={favorite.id}
-                  className="card-simple flex flex-col gap-2 md:flex-row justify-between"
+                  className="bg-slate-900 text-slate-200 p-4 rounded-xl shadow-md my-4 flex flex-col gap-2 md:flex-row justify-between"
                 >
                   <h2>{favorite.title}</h2>
                   <div className="flex flex-col md:flex-row gap-2">
@@ -44,8 +55,10 @@ const Favorites = () => {
                       Ver detalhes
                     </Link>
                     <button
-                      className="btn bg-red-500 hover:bg-red-600"
-                      onClick={() => removeMovie(favorite, setFavorites)}
+                      className=" bg-red-500 hover:bg-red-600"
+                      onClick={() => {
+                        handleRemoveMovie(favorite);
+                      }}
                     >
                       Excluir
                     </button>

@@ -7,6 +7,7 @@ import Layout from "@/components/Layout/Index";
 import { getMovie } from "@/services/movies";
 
 import { saveMovie } from "@/services/favorites";
+import { toast } from "react-toastify";
 
 const Movie = () => {
   const [movie, setMovie] = useState({});
@@ -19,6 +20,15 @@ const Movie = () => {
     getMovie(id, setMovie, setLoading, navigate);
   }, []);
 
+  const handleSaveMovie = () => {
+    try {
+      saveMovie(movie);
+      toast.success("Filme salvo com sucesso!")
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
   return (
     <Layout pageTitle="Filme">
       {loading ? (
@@ -29,9 +39,9 @@ const Movie = () => {
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
             }}
-            className="card-movie"
+            className="relative w-full h-192 rounded-2xl shadow-md bg-no-repeat bg-cover bg-center"
           >
-            <div className="card-body">
+            <div className="card-fade">
               <div className="flex flex-col justify-between items-start md:items-end md:flex-row">
                 <h2 className="mb-1">{movie.title}</h2>
                 <span className="bg-blue-500 px-2 py-1 rounded-lg w-fit">
@@ -40,7 +50,7 @@ const Movie = () => {
               </div>
             </div>
           </article>
-          <article className="card-simple my-4">
+          <article className="bg-slate-900 text-slate-200 p-4 rounded-xl shadow-md my-4">
             <h2 className="mb-1">Resumo</h2>
             <p className="text-lg">{movie.overview}</p>
             <hr className="my-2" />
@@ -50,14 +60,17 @@ const Movie = () => {
             </p>
           </article>
           <div className="flex gap-4 justify-center md:justify-start">
-            <button className="btn" onClick={() => saveMovie(movie)}>
+            <button
+              className="link bg-blue-500 hover:bg-blue-600"
+              onClick={handleSaveMovie}
+            >
               Salvar
             </button>
             <a
               href={`https://youtube.com/results?search_query=${movie.title} Trailer`}
               rel="external"
               target="_blank"
-              className="btn"
+              className="link bg-blue-500 hover:bg-blue-600"
             >
               Trailer
             </a>
