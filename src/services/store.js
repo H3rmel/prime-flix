@@ -1,4 +1,3 @@
-
 const isMovieInFavorites = (favorites, movie, callback) => {
   if (favorites.some((favorite) => favorite.id === movie.id)) callback(true);
   else callback(false);
@@ -9,5 +8,5 @@ const getFavorites = () => {
   return JSON.parse(myList) || [];
 };
 
-export { isMovieInFavorites, setFavorites, getFavorites };
+export { isMovieInFavorites, getFavorites };
 
