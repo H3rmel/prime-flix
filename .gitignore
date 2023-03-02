@@ -24,6 +24,3 @@ dist-ssr
 *.sw?
 
 .vercel
-
-# Security
-.env
