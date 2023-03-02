@@ -16,33 +16,6 @@ O projeto se encontra hospedado na [Vercel](https://vercel.com), no seguinte lin
 
 [Home - Prime Flix](https://prime-flix-h3rmel.vercel.app/)
 
-## Rodando o projeto  🚀
-
-Para rodar o projeto é bastante simples, basta clonar ele:
-
-```
-  git clone https://github.com/H3rmel/prime-flix.git
-```
-
-E após isso, dentro do repositório executar os seguintes comandos:
-
-```
-  npm i
-  npm run dev
-```
-
-Se tudo estiver correto, você verá uma mensagem como esta em seu CLI:
-
-```
-  VITE v4.1.4  ready in 384 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: http://10.1.1.182:5173/
-  ➜  press h to show help
-```
-
-*Obs.: A versão e tempo para o Vite iniciar pode ser diferente de usuário para usuário. (por motivos de computadores diferentes e versões de Node diferentes)*
-
 ## Tecnologias 🛠️
 
 - React
