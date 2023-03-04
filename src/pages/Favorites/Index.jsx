@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import Layout from "@/components/Layout/Index";
+import MainLayout from "@/layouts/MainLayout";
 
 import { getFavorites, removeMovie } from "@/services/favorites";
 
@@ -27,7 +27,7 @@ const Favorites = () => {
   };
 
   return (
-    <Layout pageTitle="Favoritos">
+    <MainLayout pageTitle="Favoritos">
       {loading ? (
         "Carregando..."
       ) : (
@@ -69,7 +69,7 @@ const Favorites = () => {
           )}
         </>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

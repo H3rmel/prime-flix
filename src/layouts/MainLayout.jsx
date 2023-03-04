@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-import Header from "../Header/Index";
+import Header from "./Header";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Layout = ({ children, pageTitle }) => {
+const MainLayout = ({ children, pageTitle }) => {
   useEffect(() => {
     document.title = `${pageTitle} | Prime Flix`;
   }, []);
@@ -19,4 +19,4 @@ const Layout = ({ children, pageTitle }) => {
   );
 };
 
-export default Layout;
+export default MainLayout;

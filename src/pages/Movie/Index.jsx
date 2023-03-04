@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import Layout from "@/components/Layout/Index";
+import MainLayout from "@/layouts/MainLayout";
 
 import { getMovie } from "@/services/movies";
 
@@ -30,7 +30,7 @@ const Movie = () => {
   };
 
   return (
-    <Layout pageTitle="Filme">
+    <MainLayout pageTitle="Filme">
       {loading ? (
         "Carregando..."
       ) : (
@@ -77,7 +77,7 @@ const Movie = () => {
           </div>
         </>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

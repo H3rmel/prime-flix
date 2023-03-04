@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import Layout from "@/components/Layout/Index";
+import MainLayout from "@/layouts/MainLayout";
 
 import { getMovies } from "@/services/movies";
 
@@ -15,7 +15,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Layout pageTitle="Home">
+    <MainLayout pageTitle="Home">
       {loading ? (
         "Carregando..."
       ) : (
@@ -38,7 +38,7 @@ const Index = () => {
           ))}
         </div>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 
