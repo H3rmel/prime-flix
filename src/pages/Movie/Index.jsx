@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import MainLayout from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts/MainLayout";
 
 import { saveMovie } from "@/services/favorites";
 import { getMovie } from "@/services/movies";
