@@ -1,6 +1,6 @@
-export { Error } from "./Error";
-export { Favorites } from "./Favorites";
-export { Home } from "./Home";
-export { Movie } from "./Movie";
-export { NotFound } from "./NotFound";
+export { Error } from "./Error/Index";
+export { Favorites } from "./Favorites/Index";
+export { Home } from "./Home/Index";
+export { Movie } from "./Movie/Index";
+export { NotFound } from "./NotFound/Index";
 
