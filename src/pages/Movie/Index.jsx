@@ -4,12 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import MainLayout from "@/layouts/MainLayout";
 
+import { saveMovie } from "@/services/favorites";
 import { getMovie } from "@/services/movies";
 
-import { saveMovie } from "@/services/favorites";
 import { toast } from "react-toastify";
 
-const Movie = () => {
+export const Movie = () => {
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -17,13 +17,18 @@ const Movie = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getMovie(id, setMovie, setLoading, navigate);
+    try {
+      getMovie(id, setMovie, setLoading);
+    } catch (error) {
+      toast.error(error);
+      navigate("/", { replace: true });
+    }
   }, []);
 
   const handleSaveMovie = () => {
     try {
       saveMovie(movie);
-      toast.success("Filme salvo com sucesso!")
+      toast.success("Filme salvo com sucesso!");
     } catch (error) {
       toast.error(error);
     }
@@ -80,5 +85,3 @@ const Movie = () => {
     </MainLayout>
   );
 };
-
-export default Movie;

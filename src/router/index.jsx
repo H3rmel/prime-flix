@@ -1,13 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// Pages
-import Error from "./Error/Index";
-import Favorites from "./Favorites/Index";
-import Home from "./Home/Index";
-import Movie from "./Movie/Index";
-import NotFound from "./NotFound/Index";
+import { Error, Favorites, Home, Movie, NotFound } from "@/pages";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
@@ -28,5 +23,3 @@ const router = createBrowserRouter([
     element: <NotFound />,
   },
 ]);
-
-export default router;

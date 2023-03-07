@@ -1,8 +1,8 @@
+import ErrorLayout from "@/layouts/ErrorLayout";
+
 import { useRouteError } from "react-router-dom";
 
-const Error = () => {
+export const Error = () => {
   const error = useRouteError();
-  return <div>{error.message}</div>;
+  return <ErrorLayout pageTitle={error.message}>{error.message}</ErrorLayout>;
 };
-
-export default Error;

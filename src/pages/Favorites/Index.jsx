@@ -8,7 +8,7 @@ import { getFavorites, removeMovie } from "@/services/favorites";
 
 import { toast } from "react-toastify";
 
-const Favorites = () => {
+export const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +20,7 @@ const Favorites = () => {
   const handleRemoveMovie = (favorite) => {
     try {
       removeMovie(favorite, setFavorites);
-      toast.success("Filme removido com sucesso!")
+      toast.success("Filme removido com sucesso!");
     } catch (error) {
       toast.error(error);
     }
@@ -72,5 +72,3 @@ const Favorites = () => {
     </MainLayout>
   );
 };
-
-export default Favorites;

@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 
 import MainLayout from "@/layouts/MainLayout";
 
-import { getMovies } from "@/services/movies";
+import { getAllMovies } from "@/services/movies";
+import { toast } from "react-toastify";
 
-const Index = () => {
+export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getMovies(setMovies, setLoading);
+    try {
+      getAllMovies(setMovies, setLoading);
+    } catch (error) {
+      toast.error(error);
+    }
   }, []);
 
   return (
@@ -30,7 +35,10 @@ const Index = () => {
             >
               <div className="card-fade">
                 <h3 className="mb-1">{movie.title}</h3>
-                <Link to={`/movie/${movie.id}`} className="link bg-blue-500 hover:bg-blue-600 small w-min">
+                <Link
+                  to={`/movie/${movie.id}`}
+                  className="link bg-blue-500 hover:bg-blue-600 small w-min"
+                >
                   Acessar
                 </Link>
               </div>
@@ -41,5 +49,3 @@ const Index = () => {
     </MainLayout>
   );
 };
-
-export default Index;
