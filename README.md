@@ -17,7 +17,7 @@ O Prime flix é um projeto realizado por meio de um curso de ReactJS da Udemy, n
 
 O projeto se encontra hospedado na [Vercel](https://vercel.com), no seguinte link:
 
-[Home - Prime Flix](https://prime-flix-h3rmel.vercel.app/)
+[Home | Prime Flix](https://prime-flix-h3rmel.vercel.app/)
 
 ## Tecnologias 🛠️
 
