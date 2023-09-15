@@ -8,9 +8,6 @@ O Prime flix é um projeto realizado por meio de um curso de ReactJS da Udemy, n
 
 - [x] Consultar filmes que estão sendo reproduzidos nos cinemas atualmente;
 - [x] Consultar informações de filmes individualmente;
-- [ ] Internacionalização da aplicação:
-  - [ ] Português;
-  - [ ] Inglês;
 - [x] Gerenciar lista de filmes favoritos.
 
 ## Hospedagem 🏨
